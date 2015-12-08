@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Comfort Sensing</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_battery_status">BatteryStatus</string>
+    <string name="title_activity_wifi_status">WifiStatus</string>
+    <string name="title_activity_personal_data">PersonalData</string>
 </resources>
