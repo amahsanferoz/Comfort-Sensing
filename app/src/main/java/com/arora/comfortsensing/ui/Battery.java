@@ -5,10 +5,15 @@ package com.arora.comfortsensing.ui;
  */
 public class Battery {
 
-    public int nativeBatteryStatus;
-    public int nativeBatteryAliveTime;
-    public int nativeTimeToFullCharge;
-    public String currentlyCharging;
-    public String chargeType;
+    private int nativeBatteryStatus;
+    private int nativeBatteryAliveTime;
+    private int nativeTimeToFullCharge;
+    private Boolean currentlyCharging;
+    private String chargeType;
+
+    private int calculatedBatteryCapacity;
+    private int batteryTemperature;
+
+
 
 }
