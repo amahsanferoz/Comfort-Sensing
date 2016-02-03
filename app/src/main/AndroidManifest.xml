@@ -36,15 +36,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.arora.comfortsensing.MainActivity"/>
         </activity>
-        <activity
-            android:name=".ui.PersonalData"
-            android:label="@string/title_activity_personal_data"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.arora.comfortsensing.MainActivity"/>
-        </activity>
     </application>
 
 </manifest>

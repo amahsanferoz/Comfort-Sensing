@@ -4,4 +4,7 @@
     <string name="title_activity_battery_status">BatteryStatus</string>
     <string name="title_activity_wifi_status">WifiStatus</string>
     <string name="title_activity_personal_data">PersonalData</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

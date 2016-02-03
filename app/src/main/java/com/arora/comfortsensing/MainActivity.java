@@ -1,42 +1,89 @@
 package com.arora.comfortsensing;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.wifi.WifiManager;
 import android.os.BatteryManager;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.arora.comfortsensing.adapter.TabsPagerAdapter;
 import com.arora.comfortsensing.ui.Battery;
-import com.arora.comfortsensing.ui.BatteryStatus;
-import com.arora.comfortsensing.ui.PersonalData;
-import com.arora.comfortsensing.ui.WifiStatus;
+import com.arora.comfortsensing.ui.Wifi;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     ImageView batteryStatus, wifiStatus, personalData;
-    TextView nativeBatteryStatus, calculativeBatteryStatus;
+    TextView nativeBatteryStatus, calculativeBatteryStatus,wifiStatusEnable;
+    WifiManager mWifiManager;
     Battery battery = new Battery();
+    Wifi wifi = new Wifi();
+
+    //Declaring Tabs
+    Toolbar mToolbar;
+    private ViewPager mViewPager;
+    private TabsPagerAdapter mAdapter;
+    private TabLayout mTabLayout;
+    private ActionBar mActionBar;
+
+    //Tab Titles
+    private String[] tab = {"Battery", "WiFi"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        batteryStatus = (ImageView) findViewById(R.id.batteryStatus);
-        wifiStatus = (ImageView) findViewById(R.id.signalStrength);
-        personalData = (ImageView) findViewById(R.id.personalData);
+        //Initialization
+        mTabLayout = (TabLayout) findViewById(R.id.tabs);
+        mTabLayout.addTab(mTabLayout.newTab().setText("Battery"));
+        mTabLayout.addTab(mTabLayout.newTab().setText("WIFI"));
 
-        nativeBatteryStatus = (TextView) findViewById(R.id.nativeBatteryStatus);
-        calculativeBatteryStatus = (TextView) findViewById(R.id.calculativeBatteryStatus);
+        mViewPager = (ViewPager) findViewById(R.id.pager);
+        mAdapter = new TabsPagerAdapter(getSupportFragmentManager(),mTabLayout.getTabCount());
+
+        mViewPager.setAdapter(mAdapter);
+        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
+
+        mTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                mViewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+       //.. batteryStatus = (ImageView) findViewById(R.id.batteryStatus);
+        //.. wifiStatus = (ImageView) findViewById(R.id.wifSignalStrength);
+        //..wifiStatusEnable = (TextView) findViewById(R.id.wifiStatus);
+        //personalData = (ImageView) findViewById(R.id.personalData);
 
 
-        batteryStatus.setOnClickListener(new View.OnClickListener() {
+
+        //..nativeBatteryStatus = (TextView) findViewById(R.id.nativeBatteryStatus);
+        //..calculativeBatteryStatus = (TextView) findViewById(R.id.calculativeBatteryStatus);
+
+
+       /* batteryStatus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -68,17 +115,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        personalData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, PersonalData.class);
-                startActivity(intent);
-            }
-        });
-
         //Update Main Activity Display
         getBatteryInformations();
-        updateDisplay();
+        getBatteryInformations();
+        updateDisplay();*/
+
     }
 
     //Gathering all the information from the system for battery
@@ -141,6 +182,12 @@ public class MainActivity extends AppCompatActivity {
         Log.d("batterLevel", "Battery Level: " + batteryLevel);
 
         nativeBatteryStatus.setText(battery.getNativeBatteryStatus() + "%");
+
+       if(wifi.isEnabled()) {
+            wifiStatusEnable.setText("Enable");
+       } else {
+           wifiStatusEnable.setText("Disable");
+       }
     }
 
     @Override

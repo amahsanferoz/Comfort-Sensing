@@ -9,6 +9,19 @@ public class Wifi {
     private float wifiSignalStrength;
     private String wifiAPName;
     private String wifiIP;
+    private boolean isEnabled;
+
+    public Wifi(){
+        isEnabled = false;
+    }
+
+    public boolean isEnabled() {
+        return isEnabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
+    }
 
     public float getWifiCapacity() {
         return wifiCapacity;
