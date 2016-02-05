@@ -13,6 +13,10 @@ public class Battery {
     private int batteryVoltage;
     private String batteryTechnology;
 
+    public Battery() {
+        currentlyCharging = false;
+    }
+
     public int getBatteryVoltage() {
         return batteryVoltage;
     }

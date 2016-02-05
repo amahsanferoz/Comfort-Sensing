@@ -3,6 +3,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
+              android:id="@+id/batteryFragment"
               tools:context="com.arora.comfortsensing.fragment.BatteryFragment"
               android:background="@android:color/black"
     >

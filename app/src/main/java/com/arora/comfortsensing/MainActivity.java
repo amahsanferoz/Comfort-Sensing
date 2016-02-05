@@ -20,10 +20,10 @@ import com.arora.comfortsensing.adapter.TabsPagerAdapter;
 import com.arora.comfortsensing.ui.Battery;
 import com.arora.comfortsensing.ui.Wifi;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
     ImageView batteryStatus, wifiStatus, personalData;
-    TextView nativeBatteryStatus, calculativeBatteryStatus,wifiStatusEnable;
+    TextView nativeBatteryStatus, calculativeBatteryStatus, wifiStatusEnable;
     WifiManager mWifiManager;
     Battery battery = new Battery();
     Wifi wifi = new Wifi();
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity{
         mTabLayout.addTab(mTabLayout.newTab().setText("WIFI"));
 
         mViewPager = (ViewPager) findViewById(R.id.pager);
-        mAdapter = new TabsPagerAdapter(getSupportFragmentManager(),mTabLayout.getTabCount());
+        mAdapter = new TabsPagerAdapter(getSupportFragmentManager(), mTabLayout.getTabCount());
 
         mViewPager.setAdapter(mAdapter);
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
@@ -72,58 +72,36 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-       //.. batteryStatus = (ImageView) findViewById(R.id.batteryStatus);
-        //.. wifiStatus = (ImageView) findViewById(R.id.wifSignalStrength);
-        //..wifiStatusEnable = (TextView) findViewById(R.id.wifiStatus);
-        //personalData = (ImageView) findViewById(R.id.personalData);
-
-
-
-        //..nativeBatteryStatus = (TextView) findViewById(R.id.nativeBatteryStatus);
-        //..calculativeBatteryStatus = (TextView) findViewById(R.id.calculativeBatteryStatus);
-
-
-       /* batteryStatus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //Creating bundle object
-                Bundle batteryInformation = new Bundle();
-
-                //Storing data into bundle
-                batteryInformation.putString("batteryLevel", battery.getNativeBatteryStatus());
-                batteryInformation.putBoolean("isCurrentlyCharging", battery.getCurrentlyCharging());
-                batteryInformation.putString("chargeType", battery.getChargeType());
-                batteryInformation.putInt("batteryTemperature", battery.getBatteryTemperature());
-                batteryInformation.putInt("batteryVoltage", battery.getBatteryVoltage());
-                batteryInformation.putString("batteryTechnology", battery.getBatteryTechnology());
-
-                //Create Intent Object
-                Intent intent = new Intent(MainActivity.this, BatteryStatus.class);
-
-                //Storing bundle object into intent
-                intent.putExtras(batteryInformation);
-                startActivity(intent);
-            }
-        });
-
-        wifiStatus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, WifiStatus.class);
-                startActivity(intent);
-            }
-        });
-
-        //Update Main Activity Display
         getBatteryInformations();
-        getBatteryInformations();
-        updateDisplay();*/
-
     }
 
+    /*
+    public void sendBatteryData() {
+        Log.d("Battery Level: ", battery.getNativeBatteryStatus());
+        Log.d("Is Charging: ", String.valueOf(battery.getCurrentlyCharging()));
+        Log.d("Charging Type: ", battery.getChargeType());
+        Log.d("Battery Temperature: ", String.valueOf(battery.getBatteryTemperature()));
+        Log.d("Battery Voltage: ", String.valueOf(battery.getBatteryVoltage()));
+        Log.d("Battery Technology: ", battery.getBatteryTechnology());
+        //Creating bundle object to send data to Battery and Wifi Fragment
+        Bundle batteryInformation = new Bundle();
+
+        //String hagu = battery.getNativeBatteryStatus();
+
+        //Storing Battery data into bundle
+        batteryInformation.putString("batteryLevel", battery.getNativeBatteryStatus());
+        batteryInformation.putBoolean("isCurrentlyCharging", battery.getCurrentlyCharging());
+        batteryInformation.putString("chargeType", battery.getChargeType());
+        batteryInformation.putInt("batteryTemperature", battery.getBatteryTemperature());
+        batteryInformation.putInt("batteryVoltage", battery.getBatteryVoltage());
+        batteryInformation.putString("batteryTechnology", battery.getBatteryTechnology());
+
+        BatteryFragment batteryFragment = new BatteryFragment();
+        batteryFragment.setArguments(batteryInformation);
+    } */
+
     //Gathering all the information from the system for battery
-    private Battery getBatteryInformations() {
+    public Battery getBatteryInformations() {
         IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
         Intent batteryStatus = this.registerReceiver(null, ifilter);
 
@@ -152,7 +130,7 @@ public class MainActivity extends AppCompatActivity{
         }
 
         //Battery Temperature
-        int temp = batteryStatus.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, 0)/10;
+        int temp = batteryStatus.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, 0) / 10;
 
         //Battery Voltage
         int voltage = batteryStatus.getIntExtra(BatteryManager.EXTRA_VOLTAGE, 0);
@@ -168,8 +146,7 @@ public class MainActivity extends AppCompatActivity{
         battery.setBatteryVoltage(voltage);
         battery.setBatteryTechnology(technology);
 
-        return battery;
-        //nativeBatteryStatus.setText(batteryLevel + "%");
+         return battery;
     }
 
     //Update the main display
@@ -183,11 +160,11 @@ public class MainActivity extends AppCompatActivity{
 
         nativeBatteryStatus.setText(battery.getNativeBatteryStatus() + "%");
 
-       if(wifi.isEnabled()) {
+        if (wifi.isEnabled()) {
             wifiStatusEnable.setText("Enable");
-       } else {
-           wifiStatusEnable.setText("Disable");
-       }
+        } else {
+            wifiStatusEnable.setText("Disable");
+        }
     }
 
     @Override
@@ -211,4 +188,5 @@ public class MainActivity extends AppCompatActivity{
 
         return super.onOptionsItemSelected(item);
     }
+
 }
