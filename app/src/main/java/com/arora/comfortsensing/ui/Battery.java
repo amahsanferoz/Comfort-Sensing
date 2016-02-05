@@ -12,6 +12,15 @@ public class Battery {
     private String chargeType;
     private int batteryVoltage;
     private String batteryTechnology;
+    private double batteryCapacity;
+
+    public double getBatteryCapacity() {
+        return batteryCapacity;
+    }
+
+    public void setBatteryCapacity(double batteryCapacity) {
+        this.batteryCapacity = batteryCapacity;
+    }
 
     public Battery() {
         currentlyCharging = false;

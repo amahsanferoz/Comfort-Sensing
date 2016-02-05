@@ -52,6 +52,7 @@ public class BatteryFragment extends Fragment{
         tv_batteryTemp.setText(String.valueOf(info.getBatteryTemperature()));
         tv_batteryVoltage.setText(String.valueOf(info.getBatteryVoltage()));
         tv_batteryTechnology.setText(info.getBatteryTechnology());
+        tv_batteryCapacity.setText(String.valueOf(info.getBatteryCapacity()));
 
         // Inflate the layout for this fragment
         return view;

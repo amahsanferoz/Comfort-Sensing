@@ -103,9 +103,9 @@
                 android:layout_height="wrap_content"
                 android:text="CHARGING STATE"
                 android:textColor="#FFFFFF"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:gravity="center_horizontal"
-                android:textSize="19sp"/>
+                android:textSize="16sp"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -113,7 +113,7 @@
                 android:textColor="#FFFFFF"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:textSize="22sp"
+                android:textSize="16sp"
                 android:id="@+id/tv_chargingState"/>
         </TableRow>
 
@@ -126,9 +126,9 @@
                     android:layout_height="wrap_content"
                     android:text="CHARGE REMAIN"
                     android:textColor="#FFFFFF"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:gravity="center_horizontal"
-                    android:textSize="19sp"/>
+                    android:textSize="16sp"/>
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -136,7 +136,7 @@
                     android:textColor="#FFFFFF"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:textSize="22sp"
+                    android:textSize="16sp"
                     android:id="@+id/tv_chargeRemain"/>
             </TableRow>
             <TableRow
@@ -150,7 +150,7 @@
                     android:textColor="#FFFFFF"
                     android:layout_weight="2"
                     android:gravity="center_horizontal"
-                    android:textSize="19sp"/>
+                    android:textSize="16sp"/>
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -158,7 +158,7 @@
                     android:textColor="#FFFFFF"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:textSize="22sp"
+                    android:textSize="16sp"
                     android:id="@+id/tv_batteryTemp"/>
             </TableRow>
             <TableRow
@@ -172,7 +172,7 @@
                     android:textColor="#FFFFFF"
                     android:layout_weight="2"
                     android:gravity="center_horizontal"
-                    android:textSize="19sp"/>
+                    android:textSize="16sp"/>
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -180,7 +180,7 @@
                     android:textColor="#FFFFFF"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:textSize="22sp"
+                    android:textSize="16sp"
                     android:id="@+id/tv_batteryTechnology"/>
             </TableRow>
             <TableRow
@@ -192,9 +192,9 @@
                     android:layout_height="wrap_content"
                     android:text="BATTERY VOLTAGE"
                     android:textColor="#FFFFFF"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:gravity="center_horizontal"
-                    android:textSize="19sp"/>
+                    android:textSize="16sp"/>
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -202,7 +202,7 @@
                     android:textColor="#FFFFFF"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:textSize="22sp"
+                    android:textSize="16sp"
                     android:id="@+id/tv_batteryVoltage"/>
             </TableRow>
             <TableRow
@@ -214,9 +214,9 @@
                     android:layout_height="wrap_content"
                     android:text="CHARGE TYPE"
                     android:textColor="#FFFFFF"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:gravity="center_horizontal"
-                    android:textSize="19sp"/>
+                    android:textSize="16sp"/>
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -224,7 +224,7 @@
                     android:textColor="#FFFFFF"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:textSize="22sp"
+                    android:textSize="16sp"
                     android:id="@+id/tv_chargeType"/>
             </TableRow>
             <TableRow
@@ -236,9 +236,9 @@
                     android:layout_height="wrap_content"
                     android:text="BATTERY CAPACITY"
                     android:textColor="#FFFFFF"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:gravity="center_horizontal"
-                    android:textSize="19sp"/>
+                    android:textSize="16sp"/>
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -246,7 +246,7 @@
                     android:textColor="#FFFFFF"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:textSize="22sp"
+                    android:textSize="16sp"
                     android:id="@+id/tv_batteryCapacity"/>
             </TableRow>
             <TableRow
@@ -260,7 +260,7 @@
                     android:textColor="#FFFFFF"
                     android:layout_weight="2"
                     android:gravity="center_horizontal"
-                    android:textSize="19sp"/>
+                    android:textSize="16sp"/>
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -268,7 +268,7 @@
                     android:textColor="#FFFFFF"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:textSize="22sp"
+                    android:textSize="16sp"
                     android:id="@+id/tv_actualBatteryCapacity"/>
             </TableRow>
         </TableLayout>

@@ -17,6 +17,12 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+            <receiver android:name="com.arora.comfortsensing.MainActivity">
+                <intent-filter>
+                    <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                    <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+                </intent-filter>
+            </receiver>
         </activity>
         <activity
             android:name=".ui.BatteryStatus"
@@ -36,6 +42,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.arora.comfortsensing.MainActivity"/>
         </activity>
+
     </application>
 
 </manifest>

@@ -1,6 +1,6 @@
 package com.arora.comfortsensing;
 
-import android.app.ActionBar;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.wifi.WifiManager;
@@ -33,10 +33,6 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private TabsPagerAdapter mAdapter;
     private TabLayout mTabLayout;
-    private ActionBar mActionBar;
-
-    //Tab Titles
-    private String[] tab = {"Battery", "WiFi"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,6 +134,9 @@ public class MainActivity extends AppCompatActivity {
         //Battery Technology
         String technology = batteryStatus.getExtras().getString(BatteryManager.EXTRA_TECHNOLOGY);
 
+        //Battery capacity
+        double batteryCapacity = getBatteryCapacity();
+
         //Set the value for the battery instance
         battery.setNativeBatteryStatus(batteryLevel);
         battery.setCurrentlyCharging(isCharging);
@@ -145,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
         battery.setBatteryTemperature(temp);
         battery.setBatteryVoltage(voltage);
         battery.setBatteryTechnology(technology);
+        battery.setBatteryCapacity(batteryCapacity);
 
          return battery;
     }
@@ -165,6 +165,31 @@ public class MainActivity extends AppCompatActivity {
         } else {
             wifiStatusEnable.setText("Disable");
         }
+    }
+
+    public double getBatteryCapacity() {
+        double batteryCapacity = 0.0;
+        Object mPowerProfile_ = null;
+
+        final String POWER_PROFILE_CLASS = "com.android.internal.os.PowerProfile";
+
+        try {
+            mPowerProfile_ = Class.forName(POWER_PROFILE_CLASS)
+                    .getConstructor(Context.class).newInstance(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            batteryCapacity = (Double) Class
+                    .forName(POWER_PROFILE_CLASS)
+                    .getMethod("getAveragePower", java.lang.String.class)
+                    .invoke(mPowerProfile_, "battery.capacity");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return batteryCapacity;
     }
 
     @Override
