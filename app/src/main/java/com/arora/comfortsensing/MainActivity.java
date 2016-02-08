@@ -149,6 +149,17 @@ public class MainActivity extends AppCompatActivity {
          return battery;
     }
 
+    public Wifi getWifiInformation() {
+
+        WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+
+        //Check wifi is enabled
+        if (wifiManager.isWifiEnabled()) {
+            wifi.isEnabled();
+        }
+        return wifi;
+    }
+
     //Update the main display
     private void updateDisplay() {
 

@@ -1,14 +1,66 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:id="@+id/wifiFragment"
-             tools:context="com.arora.comfortsensing.fragment.WifiFragment">
+<LinearLayout android:id="@+id/wifiFragment"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="com.arora.comfortsensing.fragment.WifiFragment"
+              android:background="@android:color/black">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+        android:layout_height="wrap_content">
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                     android:layout_width="fill_parent"
+                     android:layout_height="fill_parent"
+                     android:paddingTop="20dp">
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="WIFI IS ON"
+                    android:textColor="#FFFFFF"
+                    android:layout_weight="2"
+                    android:gravity="center_horizontal"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textColor="#FFFFFF"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:textSize="16sp"
+                    android:id="@+id/tv_wifiState"/>
+            </TableRow>
 
-</FrameLayout>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="WIFI Connected"
+                    android:textColor="#FFFFFF"
+                    android:layout_weight="2"
+                    android:gravity="center_horizontal"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textColor="#FFFFFF"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:textSize="16sp"
+                    android:id="@+id/tv_wifiConnectedTo"/>
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+
+
+</LinearLayout>
